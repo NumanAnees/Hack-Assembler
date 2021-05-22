@@ -7,7 +7,7 @@
 #include <math.h>
 #include <vector>
 using namespace std;
-//----------------------------------------Global declarations------------------------------------------------------------------
+//----------------------------------------Global declarations 🔥 ------------------------------------------------------------------
 
 string C_Instructions[44] = {"0", "1", "-1", "D", "A", "!D", "!A", "-D", "-A", "D+1", "A+1", "D-1", "A-1", "D+A", "D-A", "A-D", "D&A", "D|A", "M", "!M", "-M", "M+1", "M-1", "D+M", "D-M", "M-D", "D&M", "D|M", "NULL", "M", "D", "MD", "A", "AM", "AD", "AMD", "NULL", "JGT", "JEQ", "JGE", "JLT", "JNE", "JLE", "JMP"};
 string C_Values[44] = {"101010", "111111", "111010", "001100", "110000", "001101", "110001", "001111", "110011", "011111", "110111", "001110", "110010", "000010", "010011", "000111", "000000", "010101", "110000", "110001", "110011", "110111", "110010", "000010", "010011", "000111", "000000", "010101", "000", "001", "010", "011", "100", "101", "100", "111", "000", "001", "010", "011", "100", "101", "110", "111"};
@@ -19,7 +19,7 @@ std::vector<int> my2ndvector;
 
 static int TotalLines = 0;
 
-//-------------------------------converting decimal into binary using recursion-------------------------------------------------
+//-------------------------------converting decimal into binary 👷‍♂️ -------------------------------------------------
 
 string decToBinary(int n)
 {
@@ -44,7 +44,7 @@ string decToBinary(int n)
     num >> ret;
     return ret;
 }
-//----------------------------------------removing spaces function------------------------------------------------------------
+//----------------------------------------removing spaces function 📡 ------------------------------------------------------------
 
 string RemoveSpace(string s)
 {
@@ -57,7 +57,7 @@ string RemoveSpace(string s)
     return str;
 }
 
-//------------------------------------------C_Code------------------------------------------
+//------------------------------------------C_Code 🔥 ------------------------------------------
 string C_Code(string s)
 {
     string out7Bits;                                    //C-inst consist of 7 bits
@@ -77,7 +77,7 @@ string C_Code(string s)
     }
     return "Error! computation is not in the table";    //if comp is not in the range 0-27 then it is not valid
 }
-//----------------------------------------------Dest_Code----------------------------------------
+//----------------------------------------------Dest_Code :gear: ----------------------------------------
 string D_Code(string s)
 {
     string out3Bits;                                    //output is 3 bits
@@ -247,39 +247,39 @@ void Files(string filename,string hack){
                 int tempint;
                 //checking if it is predefined symbol or not 👍
                 getline(assemblyFile, line);
-                line = RemoveSpace(line);             //after getting the whole number as string we used  RemoveSpace func for removing spaces
-                delimeter_A = "/";                    //This delimeter will help in finding the inline comments
-                int check_A = line.find(delimeter_A); //checking if inline comments present or not
-                if (check_A != -1)                    //true if there is any inline cmnt
+                line = RemoveSpace(line);                          //after getting the whole number as string we used  RemoveSpace func for removing spaces
+                delimeter_A = "/";                                 //This delimeter will help in finding the inline comments
+                int check_A = line.find(delimeter_A);              //checking if inline comments present or not
+                if (check_A != -1)                                 //true if there is any inline cmnt
                 {
                     line = line.substr(0, line.find(delimeter_A)); //line var stores the string from 0 to '/' where the comment begins
                 }
-                for (int i = 0; i <= 23; i++)       //start loop 23 times so it checks whether the @ after string is in table or not
+                for (int i = 0; i <= 23; i++)                       //start loop 23 times so it checks whether the @ after string is in table or not
                 {
                     if (line == Table_23[i])
                     {
                         temp = Values_23[i];
                         line = temp;
-                        goto LABEL;                 //if found simply goto label i can also copy paste the label code and return but i'm lazy,  
+                        goto LABEL;                                  //if found simply goto label i can also copy paste the label code and return but i'm lazy,  
                     }
                 }
                 //if not in table then check if it is number
                 if (line[0] == '1' || line[0] == '2' || line[0] == '3' || line[0] == '4' || line[0] == '5' || line[0] == '6' || line[0] == '7' || line[0] == '8' || line[0] == '9')
                 {
-                    goto LABEL;                    //if a number occurs after @ just goto label , i can also copy paste the code and return but i am lazyyyyyyyyy.      
+                    goto LABEL;                                      //if a number occurs after @ just goto label , i can also copy paste the code and return but i am lazyyyyyyyyy.      
                 }
 
                 for (int i = 0; i < myvector.size(); i++)
                 {
-                    if (line == myvector[i])        //now if it is not in table and not a number then check if it is in vector (symbol)
+                    if (line == myvector[i])                        //now if it is not in table and not a number then check if it is in vector (symbol)
                     {
-                        tempint = my2ndvector[i];
+                        tempint = my2ndvector[i];                    // 👌
                         stringstream ss;
                         ss << tempint;
                         ss >> temp;
                         line = temp;
-                        goto LABEL;               // //if found simply goto label i can also copy paste the label code and return but i'm lazy  
-                    }
+                        goto LABEL;                                  // //if found simply goto label i can also copy paste the label code and return but i'm lazy  
+                    }           
                 }
 
                 //symbols
@@ -287,7 +287,7 @@ void Files(string filename,string hack){
                 my2ndvector.push_back(Variables);
                 line = to_string(Variables);
                 Variables++;
-            LABEL:
+            LABEL:                                  
                 output16bit = functionForA(line);                   //FuncForA function Converts the decimal code into binary and returns a 16bits string
 
                                                                     //storing 16 bits answer into output file:
@@ -334,11 +334,13 @@ void Files(string filename,string hack){
 int main()
 {
     string filename;
+    cout<<"<--------------------------------------Input File name------------------------------------->"<<endl;
     cout << "Enter the File name : ";                   //open the appropriate file
-    cin >> filename;
+    cin >> filename; 
     filename = filename.substr(0, filename.find('.'));  //if you enter test.asm this instruction filter it to test
     string hack;
     hack = filename + ".hack";                          //then the filtered test is concatenated with .hack 
     Files(filename,hack);                               //calling the function it will handle everything
+    cout<<"<--------------------------------------Created "<<hack<<" file 😄"<<" ------------------------------------->"<<endl; 
     return 0;
 }
