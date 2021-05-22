@@ -185,19 +185,9 @@ string functionForC(string s)
     Bits_16 = Bits_16 + J_Code(jump);                       //concatinate the 13 bits with 3 bits of jump
     return Bits_16;                                         //return the 16 bits number which we can write into file later on
 }
+//----------------------------------------------Handling file----------------------------------------------------
 
-//-----------------------------------------------main func()-----------------------------------------------------
-
-int main()
-{
-    string filename;
-    cout << "Enter the File name : ";                   //open the appropriate file
-    cin >> filename;
-    filename = filename.substr(0, filename.find('.'));  //if you enter test.asm this instruction filter it to test
-    string hack;
-    hack = filename + ".hack";                          //filtered test+.hack makes test.hack
-    //cout << hack << endl << filename;
-                                                        //reading the asm file 👍
+void Files(string filename,string hack){
     fstream assemblyFile, outputFile;                   //.asm and hack files
     assemblyFile.open(filename + ".asm", ios::in);
     outputFile.open(hack, ios::out);
@@ -337,6 +327,18 @@ int main()
 
         outputFile.close();   //closing the files
         assemblyFile.close(); //closing the files
-    }
+}
+}
+//-----------------------------------------------main func()-----------------------------------------------------
+
+int main()
+{
+    string filename;
+    cout << "Enter the File name : ";                   //open the appropriate file
+    cin >> filename;
+    filename = filename.substr(0, filename.find('.'));  //if you enter test.asm this instruction filter it to test
+    string hack;
+    hack = filename + ".hack";                          //then the filtered test is concatenated with .hack 
+    Files(filename,hack);                               //calling the function it will handle everything
     return 0;
 }

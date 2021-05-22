@@ -73,7 +73,7 @@ D;JEQ
 @New
 D=M
 @Y
-M=M+D
+M=D+M
 @Temp3
 M=M-1
 @LOOP3
@@ -81,4 +81,3 @@ M=M-1
 (End)
 @End
 0;JMP
-
